@@ -55,11 +55,10 @@ ers_username varchar(50), unique(ers_username),
 user_first_name varchar(100),
 user_last_name varchar(100),
 user_email varchar(150), unique(user_email),
-user_author int,
-user_resolver int,
 user_role_id_fk int references ers_user_roles(ers_user_role_id)
 );
-insert into ers_users(ers_username, "ers_password", user_first_name, user_last_name, user_email, user_author, user_resolver, user_role_id_fk)
-values ('MelvisAche', 'Explosive01', 'Melvis', 'Ache', 'achemelvis@gmail.com', 01, 02, 1);
+insert into ers_users(ers_username, "ers_password", user_first_name, user_last_name, user_email, user_role_id_fk)
+values ('MelvisAche', 'Explosive01', 'Melvis', 'Ache', 'achemelvis@gmail.com', 1), 
+('Khalifa', 'khalifa02', 'Denning', 'Billah', 'khalifa02@gmail.com', 2);
 select * from ers_users;
 --drop  table ers_users cascade;
