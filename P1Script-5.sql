@@ -43,7 +43,7 @@ ers_user_role_id serial primary key,
 user_role varchar(50)
 );
 insert into ers_user_roles(user_role) 
-values('System Analyst');
+values('System Analyst'), ('Financial Manager');
 select * from ers_user_roles;
 --drop  table ers_user_roles cascade;
 

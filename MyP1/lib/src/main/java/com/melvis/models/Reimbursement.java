@@ -23,16 +23,14 @@ public class Reimbursement {
 				+ ", type=" + type + "]";
 	}
 	
-	private Reimbursement(int id, double amount, String description, int author, int resolver, int status_id_fk,
-			int type_id_fk, String receipt, Date submitted, Date resolved, Status status, Type type) {
+	public Reimbursement(int id, double amount, String description, int author, int resolver, String receipt, Date submitted, Date resolved, Status status, Type type) {
 		super();
 		this.id = id;
 		this.amount = amount;
 		this.description = description;
 		this.author = author;
 		this.resolver = resolver;
-		this.status_id_fk = status_id_fk;
-		this.type_id_fk = type_id_fk;
+		
 		this.receipt = receipt;
 		this.submitted = submitted;
 		this.resolved = resolved;
@@ -40,7 +38,7 @@ public class Reimbursement {
 		this.type = type;
 	}
 
-	private Reimbursement(double amount, String description, int author, int resolver, int status_id_fk, int type_id_fk,
+	public Reimbursement(double amount, String description, int author, int resolver, int status_id_fk, int type_id_fk,
 			String receipt, Date submitted, Date resolved, Status status, Type type) {
 		super();
 		this.amount = amount;

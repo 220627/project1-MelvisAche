@@ -9,13 +9,13 @@ public class Roles {
 		return "Roles [id=" + id + ", role=" + role + "]";
 	}
 
-	private Roles(int id, String role) {
+	public Roles(int id, String role) {
 		super();
 		this.id = id;
 		this.role = role;
 	}
 
-	private Roles(String role) {
+	public Roles(String role) {
 		super();
 		this.role = role;
 	}

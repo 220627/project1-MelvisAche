@@ -7,16 +7,13 @@ public class LoginUsersDTO {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String author;
-	private String resolver;
 	private Roles role;
 	private int role_id_fk;
 	
 	@Override
 	public String toString() {
 		return "LoginUsersDTO [usersID=" + usersID + ", username=" + username + ", password=" + password
-				+ ", firstName=" + firstName + ", secondName=" + lastName + ", email=" + email + ", author=" + author
-				+ ", resolver=" + resolver + ", role=" + role + ", role_id_fk=" + role_id_fk + "]";
+				+ ", firstName=" + firstName + ", secondName=" + lastName + ", email=" + email + ", role=" + role + ", role_id_fk=" + role_id_fk + "]";
 	}
 
 	private LoginUsersDTO(int usersID, String username, String password, String firstName, String lastName,
@@ -28,22 +25,18 @@ public class LoginUsersDTO {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.author = author;
-		this.resolver = resolver;
 		this.role = role;
 		this.role_id_fk = role_id_fk;
 	}
 
 	private LoginUsersDTO(String username, String password, String firstName, String lastName, String email,
-			String author, String resolver, Roles role, int role_id_fk) {
+			Roles role, int role_id_fk) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.author = author;
-		this.resolver = resolver;
 		this.role = role;
 		this.role_id_fk = role_id_fk;
 	}
@@ -94,22 +87,6 @@ public class LoginUsersDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public String getResolver() {
-		return resolver;
-	}
-
-	public void setResolver(String resolver) {
-		this.resolver = resolver;
 	}
 
 	public Roles getRole() {
