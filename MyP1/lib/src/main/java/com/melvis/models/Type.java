@@ -9,13 +9,13 @@ public class Type {
 		return "Type [id=" + id + ", type=" + type + "]";
 	}
 
-	private Type(int id, String type) {
+	public Type(int id, String type) {
 		super();
 		this.id = id;
 		this.type = type;
 	}
 
-	private Type(String type) {
+	public Type(String type) {
 		super();
 		this.type = type;
 	}

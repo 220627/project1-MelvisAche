@@ -3,6 +3,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.melvis.controllers.ReimbursementController;
+import com.melvis.controllers.RolesController;
+import com.melvis.controllers.StatusController;
+import com.melvis.controllers.TypeController;
 import com.melvis.controllers.UserAuthController;
 import com.melvis.daos.AuthUserDAO;
 import com.melvis.utils.P1ConnectionUtil;
@@ -37,8 +40,30 @@ public class Launcher {
 		ReimbursementController pc = new ReimbursementController();
 		app.get("/reimbursement", pc.getReimbursementHandler);
 		app.post("/insertReimbursement", pc.insertReimbursementHandler);
-		app.put("/reimbursement/:id", pc.updateReimbursementHandler);//updating address where patient name equals
-		app.delete("/reimbursement/:reimb_id", pc.deleteReimbursementHandler);
+		app.put("/ers_reimbursement/:reimb_id", pc.updateReimbursementHandler);
+		app.delete("/ers_reimbursement/:reimb_id", pc.deleteReimbursementHandler);
+		
+		//Roles Handler
+		RolesController rc = new RolesController();
+		app.get("/role", rc.getRoleHandler);
+		app.post("/insertRole", rc.insertRoleHandler);
+		app.put("/ers_user_roles/:ers_user_role_id", rc.updateRoleHandler);
+		app.delete("/ers_user_roles/:ers_user_role_id", rc.deleteRoleHandler);
+		
+		//Status Handler
+		StatusController sc = new StatusController();
+		app.get("/status", sc.getStatusHandler);
+		app.post("/insertStatus", sc.insertStatusHandler);
+		app.put("/ers_reimbursement_status/:reim_status_id", sc.updateStatusHandler);
+		app.delete("/ers_reimbursement_status/:reim_status_id", sc.deleteStatusHandler);
+		
+		//Type Handler
+		TypeController tc = new TypeController();
+		app.get("/type", tc.getTypeHandler);
+		app.post("/insertType", tc.insertTypeHandler);
+		app.put("/ers_reimbursement_type/:reimb_type_id", tc.updateTypeHandler);
+		app.delete("/ers_reimbursement_type/:reimb_type_id", tc.deleteTypeHandler);
+		
 		
 }
 }

@@ -9,13 +9,13 @@ public class Status {
 		return "Status [id=" + id + ", status=" + status + "]";
 	}
 
-	private Status(int id, String status) {
+	public Status(int id, String status) {
 		super();
 		this.id = id;
 		this.status = status;
 	}
 
-	private Status(String status) {
+	public Status(String status) {
 		super();
 		this.status = status;
 	}
