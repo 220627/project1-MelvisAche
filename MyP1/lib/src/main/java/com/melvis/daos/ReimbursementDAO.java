@@ -49,7 +49,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 		public ArrayList<Reimbursement> getReimbursement() {
 	 
 			try(Connection conn = P1ConnectionUtil.getConnection()){
-				String sql = "select * from reimbursement;";
+				String sql = "select * from ers_reimbursement;";
 				//no variables do we don't need a preparedStatement
 				//What we use is
 				Statement s = conn.createStatement();
@@ -62,14 +62,14 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				
 				while(rs.next()) {
 					Reimbursement reimb = new Reimbursement(
-							rs.getInt("reim_id"),
-							rs.getDouble("reim_amount"),
-							rs.getString("reim_description"),
-							rs.getInt("reim_author"),
-							rs.getInt("reim_resolver"),
-							rs.getString("reim_receipt"),
-							rs.getDate("reim_submitted"),
-							rs.getDate("reim_resolved"),
+							rs.getInt("reimb_id"),
+							rs.getDouble("reimb_amount_$"),
+							rs.getString("reimb_description"),
+							rs.getInt("reimb_author"),
+							rs.getInt("reimb_resolver"),
+							rs.getString("reimb_receipt"),
+							rs.getDate("reimb_submitted"),
+							rs.getDate("reimb_resolved"),
 							null,
 							null
 							
@@ -106,7 +106,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 		
 		public boolean deleteReimbursementId(int id) {
 			try (Connection conn = P1ConnectionUtil.getConnection()){
-				String sql = "delete from reimbursement where reimb_id = ?";
+				String sql = "delete from ers_reimbursement where reimb_id = ?";
 				PreparedStatement ps = conn.prepareStatement(sql);
 				ps.setInt(1, id);
 				
@@ -127,7 +127,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 		public boolean updateReimbursementAmount(Double amount, int id) {
 			// TODO Auto-generated method stub
 			try (Connection conn = P1ConnectionUtil.getConnection()){
-				String sql = "update reimbursement set reimb_amount = ? where reimb_id = ?";
+				String sql = "update ers_reimbursement set reimb_amount = ? where reimb_id = ?";
 				PreparedStatement ps = conn.prepareStatement(sql);
 				ps.setDouble(1, amount);
 				ps.setInt(2, id);

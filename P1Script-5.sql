@@ -12,7 +12,7 @@ reimb_submitted timestamp,
 reimb_resolved timestamp
 );
 insert into ers_reimbursement(reimb_amount_$, reimb_description, reimb_author, reimb_resolver, reimb_status_id_fk, reimb_type_id_fk, reimb_receipt, reimb_submitted, reimb_resolved)
-values(2000, 'Obeyed rules', 02, 02, 1, 1, '\x123456', current_timestamp, current_timestamp);
+values(2000, 'Obeyed rules', 05, 05, 1, 1, '\x123456', current_timestamp, current_timestamp);
 
 select * from ers_reimbursement;
 --drop table ers_reimbursement cascade;
@@ -40,7 +40,7 @@ select * from ers_reimbursement_type;
 --User roles table
 create table ers_user_roles(
 ers_user_role_id serial primary key,
-user_role varchar(50)
+user_role varchar(50),
 );
 insert into ers_user_roles(user_role) 
 values('System Analyst'), ('Financial Manager');
