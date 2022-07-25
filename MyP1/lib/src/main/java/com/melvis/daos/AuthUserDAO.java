@@ -13,7 +13,7 @@ public class AuthUserDAO {
 		// TODO Auto-generated method stub
 		
 		try(Connection conn = P1ConnectionUtil.getConnection()){
-			String sql = "select * from ers_users where ers_username = ? and ers_password =? and user_first_name and user_last_name and user_email;";
+			String sql = "select * from ers_users where ers_username = ? and ers_password = ? and user_first_name = ? and user_last_name = ?and user_email = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2, password);
