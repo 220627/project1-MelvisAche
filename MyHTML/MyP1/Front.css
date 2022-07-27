@@ -1,15 +1,68 @@
-body{
-	margin: 0;
-	padding: 0;
-	display: flex;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  min-height: 100vh;
+  font-family: "Jost", sans-serif;
+  background: linear-gradient(to bottom, violet, blue);
+  font-family: Baloo;
+  background-image: url(https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg);
+  min-height: 100vh;
+  max-width: 300px;
+  margin: 0;
+}
+a {
+  justify-content: center;
+  align-items: center;
+}
+/*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+/* */
+
+.banner-text{
+	width: 100%;
+	position: absolute;
+	}
+	.banner-text ul{
+	height: 50px;
+	float: center;
+	margin: auto; 
+	}
+	.banner-text ul li{
+	display: inline-block;
+	background-color: mintcream;
+	padding: 10px 15px;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 20px;
+	margin-left: 0%;
+	}
+	.banner-text h1{
+	text-align: center;
+	color: #fff;
+	font-size: 80px;
+	margin-top: 10%;
+	}
+
 	
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom,violet, blue);
-    
+
+	
+
+html, body{
+  height: 100%;
 }
 
-
-/*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
-/* justify-content: center;
-	align-items: center;*/
+body{
+ 
+  background-size: cover;
+}
+    
+.firefly{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 0.4vw;
+  height: 0.4vw;
+  margin: -0.2vw 0 0 9.8vw;
+  animation: ease 200s alternate infinite;
+  pointer-events: none}

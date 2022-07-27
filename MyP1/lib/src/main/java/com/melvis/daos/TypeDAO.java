@@ -19,14 +19,14 @@ public class TypeDAO implements TypeDAOInterface{
 	@Override
 	public Type getTypeById(int id) {
 	try (Connection conn = P1ConnectionUtil.getConnection()){
-		String sql = "select * from ers_reimbursement_type where reim_type_id = ?";
+		String sql = "select * from ers_reimbursement_type where reimb_type_id = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, id);
 		ResultSet rs = ps.executeQuery(); //execute the query into our new resultset
 		while(rs.next()) {
 			Type type = new Type(
-					rs.getInt("reim_type_id"),
-					rs.getString("reim_type")
+					rs.getInt("reimb_type_id"),
+					rs.getString("reimb_type")
 					);
 			return type;
 		}
@@ -42,7 +42,7 @@ public class TypeDAO implements TypeDAOInterface{
 	public boolean updateReimbType(String type, int id) {
 		// TODO Auto-generated method stub
 		try (Connection conn = P1ConnectionUtil.getConnection()){
-			String sql = "update ers_reimbursement_type set reimb_type = ? where reim_type_id = ?";
+			String sql = "update ers_reimbursement_type set reimb_type = ? where reimb_type_id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, type);
 			ps.setInt(2, id);

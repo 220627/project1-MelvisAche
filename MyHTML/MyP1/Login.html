@@ -13,32 +13,33 @@
 
 </head>
 <body>
+	
 
     <div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
+		<input type="checkbox" id="chk" aria-hidden="false">
 
 			<div class="signup">
 				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
+					<label for="chk" aria-hidden="false">Sign up</label>
 					<input type="text" name="txt" placeholder="User name" required="">
                     <input type="password" name="pswd" placeholder="Password" required="">
 					<input type="text" name="firstname" placeholder="First Name" required="">
                     <input type="text" name="lastname" placeholder="Last Name" required="">
                     <input type="email" name="email" placeholder="Email" required="">
-					<button>Sign up</button>
+					<button id="signUpButton"><!--<a href="Front.html" style="text-decoration: none;">-->Signup</button>
 				</form>
 			</div>
 
 			<div class="login">
 				<form>
-					<label for="chk" aria-hidden="true">Login</label>
+					<label for="chk" aria-hidden="false">Login</label>
 					<input type="text" name="txt" placeholder="Username" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
+					<button id="loginButton">Login</button>
 				</form>
 			</div>
 	</div>
-
+	<script src="Login.js"></script>
 </body>
     </html>
 
