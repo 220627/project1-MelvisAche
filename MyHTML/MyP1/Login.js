@@ -1,5 +1,6 @@
 const url = "http://localhost:8181";
 document.getElementById("loginButton").onclick = loginFunction 
+document.getElementById("signUpButton").onclick = signUpFunction
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -26,15 +27,15 @@ async function loginFunction(){
     //gather user's login input
     let user = document.getElementById("username").value//names in our java objects
     let pass= document.getElementById("password").value
-    let firstName= document.getElementById("firstName").value
-    let lastName= document.getElementById("lastName").value
-    let email= document.getElementById("email").value
+    //let firstName= document.getElementById("firstName").value
+    //let lastName= document.getElementById("lastName").value
+   // let email= document.getElementById("email").value
      let userCreds = {
         username: user,
         password: pass,
-        firstName: firstName,
-        lastName: lastName,
-        email: email
+        //firstName: firstName,
+        //lastName: lastName,
+        //email: email
      }
      console.log(userCreds)
      //fetch request
@@ -57,4 +58,41 @@ async function loginFunction(){
        
 
      }
+}
+
+async function signUpFunction(){
+   //gather user's login input
+   let user = document.getElementById("username").value//names in our java objects
+   let pass= document.getElementById("password").value
+   let firstName= document.getElementById("firstName").value
+   let lastName= document.getElementById("lastName").value
+   let email= document.getElementById("email").value
+    let userCreds = {
+       username: user,
+       password: pass,
+       firstName: firstName,
+       lastName: lastName,
+       email: email
+    }
+    console.log(userCreds)
+    //fetch request
+    let response = await fetch (url + "/register", {
+       method: "POST", //sends a post request
+       body: JSON.stringify(userCreds),
+       credentials: "include"//this line ensure a cookie gets captured so that we can use session
+       
+    })
+
+    console.log(response.status)
+
+    if(response.status === 202){
+       let data = await response.json();//this converts incoming user data into js
+
+       console.log("Welcome " + data.username)
+
+    }else{
+       console.log("SignUp Failed! Please try again!!!").style.color = "red";
+      
+
+    }
 }

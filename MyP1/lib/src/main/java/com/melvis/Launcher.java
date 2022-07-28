@@ -31,9 +31,10 @@ public class Launcher {
 		
 		//Login
 		AuthUserDAO aDAO = new AuthUserDAO();
-		System.out.println(aDAO.login("MelvisAche", "Explosive01", "Melvis", "Ache", "achemelvis@gmail.com") || aDAO.login("Khalifa", "Khalifa02", "Denning", "Billah", "khalifa01@gmail.com"));
+		System.out.println(aDAO.register("MelvisAche", "Explosive01", "Melvis", "Ache", "achemelvis@gmail.com") || aDAO.register("Khalifa", "Khalifa02", "Denning", "Billah", "khalifa01@gmail.com"));
 		UserAuthController ac = new UserAuthController();
 		app.post("/login", ac.loginHandler);
+		app.post("/register", ac.registerHandler);
 
 	
 	//Reimbursement Handler	
