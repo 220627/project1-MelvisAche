@@ -21,8 +21,8 @@
 			<div class="signup">
 				
 					<label for="chk" aria-hidden="false">Sign up</label>
-					<input type="text" id="username" name="txt" placeholder="User name" required="">
-                    <input type="password" id="password" name="pswd" placeholder="Password" required="">
+					<input type="text" id="signUpusername" name="txt" placeholder="User name" required="">
+                    <input type="password" id="signUppassword" name="pswd" placeholder="Password" required="">
 					<input type="text" id="firstName" name="firstname" placeholder="First Name" required="">
                     <input type="text" id="lastName" name="lastname" placeholder="Last Name" required="">
                     <input type="email" id="email" name="email" placeholder="Email" required="">
@@ -35,11 +35,19 @@
 					<label for="chk" aria-hidden="false">Login</label>
 					<input type="text" id="username" name="txt" placeholder="Username" required="">
 					<input type="password" id="password" name="pswd" placeholder="Password" required="">
-					<button id="loginButton">Login</button>
+					<button id="loginButton" onclick="myFunc()">Login</button>
 				
 			</div>
 	</div>
+	<script>
+		function myFunc() {
+			window.location.href = "Front.html";
+		}
+		</script>
+
+
 	<script src="Login.js"></script>
+
 </body>
     </html>
 

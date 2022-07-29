@@ -10,7 +10,23 @@ public class Reimbursement {
 	private int resolver;
 	private int status_id_fk;
 	private int type_id_fk;
-	private String receipt;
+	
+	private Reimbursement(int id, double amount, String description, int author, int resolver, int status_id_fk,
+			int type_id_fk, Date submitted, Date resolved, Status status, Type type) {
+		super();
+		this.id = id;
+		this.amount = amount;
+		this.description = description;
+		this.author = author;
+		this.resolver = resolver;
+		this.status_id_fk = status_id_fk;
+		this.type_id_fk = type_id_fk;
+		this.submitted = submitted;
+		this.resolved = resolved;
+		this.status = status;
+		this.type = type;
+	}
+
 	private Date submitted;
 	private Date resolved;
 	private Status status;
@@ -19,27 +35,24 @@ public class Reimbursement {
 	public String toString() {
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", description=" + description + ", author=" + author
 				+ ", resolver=" + resolver + ", status_id_fk=" + status_id_fk + ", type_id_fk=" + type_id_fk
-				+ ", receipt=" + receipt + ", submitted=" + submitted + ", resolved=" + resolved + ", status=" + status
-				+ ", type=" + type + "]";
+				+ ", submitted=" + submitted + ", resolved=" + resolved + ", status=" + status + ", type=" + type + "]";
 	}
 	
-	public Reimbursement(int id, double amount, String description, int author, int resolver, String receipt, Date submitted, Date resolved, Status status, Type type) {
+	public Reimbursement(int id, double amount, String description, int author, int resolver, Date submitted, Date resolved, Status status, Type type) {
 		super();
 		this.id = id;
 		this.amount = amount;
 		this.description = description;
 		this.author = author;
 		this.resolver = resolver;
-		
-		this.receipt = receipt;
 		this.submitted = submitted;
 		this.resolved = resolved;
 		this.status = status;
 		this.type = type;
 	}
 
-	public Reimbursement(double amount, String description, int author, int resolver, int status_id_fk, int type_id_fk,
-			String receipt, Date submitted, Date resolved, Status status, Type type) {
+	public Reimbursement(double amount, String description, int author, int resolver, int status_id_fk, int type_id_fk
+			, Date submitted, Date resolved, Status status, Type type) {
 		super();
 		this.amount = amount;
 		this.description = description;
@@ -47,7 +60,6 @@ public class Reimbursement {
 		this.resolver = resolver;
 		this.status_id_fk = status_id_fk;
 		this.type_id_fk = type_id_fk;
-		this.receipt = receipt;
 		this.submitted = submitted;
 		this.resolved = resolved;
 		this.status = status;
@@ -108,14 +120,6 @@ public class Reimbursement {
 
 	public void setType_id_fk(int type_id_fk) {
 		this.type_id_fk = type_id_fk;
-	}
-
-	public String getReceipt() {
-		return receipt;
-	}
-
-	public void setReceipt(String receipt) {
-		this.receipt = receipt;
 	}
 
 	public Date getSubmitted() {

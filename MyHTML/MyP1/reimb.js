@@ -1,36 +1,34 @@
 const url = "http://localhost:8181";
 document.getElementById("employeeButton").onclick = getReimbusrement
-document.getElementById("loginButton").onclick = reimbFunction
+document.getElementById("reimbButton").onclick = reimbFunction
 
 async function reimbFunction(){
     //gather user's login input
-    let amount = document.getElementById("getAmount").value//names in our java objects
-    let description= document.getElementById("getDescription").value
-    let author= document.getElementById("getAuthor").value
-    let resolver= document.getElementById("getResolver").value
-    let statusId = document.getElementById("getStatus_id_fk").value
-    let typeId= document.getElementById("getType_id_fk").value
-    let receipt= document.getElementById("getReceipt").value
-    let dateSubmitted= document.getElementById("getSubmitted").value
-    let dateResolved= document.getElementById("getResolved").value
+    let amount = document.getElementById("amount").value//names in our java objects
+    let description= document.getElementById("descrip").value
+    let author= document.getElementById("author").value
+    let resolver= document.getElementById("resolver").value
+    let typeId= document.getElementById("type").value
+    let receipt= document.getElementById("receipt").value
+    let dateSubmitted= document.getElementById("datetime").value
+    let dateResolved= document.getElementById("datetime").value
    
      let userCreds = {
-        getAmount: amount,
-        getDescription: description,
-        getAuthor: author,
-        getResolver: resolver,
-        getStatus_id_fk: statusId,
-        getType_id_fk: typeId,
-        getReceipt: receipt,
-        getSubmitted: dateSubmitted,
-        getResolved: dateResolved
+        amount: amount,
+        description: description,
+        author: author,
+        resolver: resolver,
+        status_id_fk: 2,
+        type_id_fk: typeId,
+        submitted: dateSubmitted,
+        resolved: dateResolved
 
 
         
      }
      console.log(userCreds)
      //fetch request
-     let response = await fetch (url + "/reimbursement", {
+     let response = await fetch (url + "/insertReimbursement", {
         method: "POST", //sends a post request
         body: JSON.stringify(userCreds),
         credentials: "include"//this line ensure a cookie gets captured so that we can use session
@@ -62,7 +60,7 @@ async function getReimbusrement(){ //getEmployees is a sync function which uses 
             let row = document.createElement("tr")
             let cell = document.createElement("td")
             //fill the call with the appropriate data
-            cell.innerHTML = reimbursement.reimb_id
+            cell.innerHTML = reimbursement.id
             row.appendChild(cell);
 
             cell = document.createElement("td")
@@ -79,12 +77,6 @@ async function getReimbusrement(){ //getEmployees is a sync function which uses 
 
             cell = document.createElement("td")
             cell.innerHTML = reimbursement.resolver
-            row.appendChild(cell);
-
-            
-
-            cell = document.createElement("td")
-            cell.innerHTML = reimbursement.receipt
             row.appendChild(cell);
 
             cell = document.createElement("td")

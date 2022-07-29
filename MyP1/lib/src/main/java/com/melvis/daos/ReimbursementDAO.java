@@ -19,7 +19,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 		public boolean insertReimburse(Reimbursement reimburse) {
 			// TODO Auto-generated method stub
 			try(Connection conn = P1ConnectionUtil.getConnection()){
-	        String sql = "insert into ers_reimbursement(reimb_amount, reimb_description, reimb_author, reimb_resolver, reimb_status_id_fk, reimb_type_id_fk, reimb_receipt, reimb_submitted, reimb_resolved) values (?,?,?,?,?,?,?,?,?);";
+	        String sql = "insert into ers_reimbursement(reimb_amount_$, reimb_description, reimb_author, reimb_resolver, reimb_status_id_fk, reimb_type_id_fk, reimb_submitted, reimb_resolved) values (?,?,?,?,?,?,?,?);";
 				//Instantiate a prepared statement to fill in the variable of our sql
 				PreparedStatement ps = conn.prepareStatement(sql);
 				//Fill in the values of our variables using ps.
@@ -29,9 +29,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ps.setInt(4, reimburse.getResolver());
 				ps.setInt(5, reimburse.getStatus_id_fk());
 				ps.setInt(6, reimburse.getType_id_fk());
-				ps.setString(7, reimburse.getReceipt());
-				ps.setDate(8, (Date) reimburse.getSubmitted());
-				ps.setDate(9, (Date) reimburse.getResolved());
+				ps.setDate(7, (Date) reimburse.getSubmitted());
+				ps.setDate(8, (Date) reimburse.getResolved());
 				ps.executeUpdate();//this sends our sql off to the database
 				
 				System.out.println("Reimbursement was inserted successfully...");
@@ -67,7 +66,6 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 							rs.getString("reimb_description"),
 							rs.getInt("reimb_author"),
 							rs.getInt("reimb_resolver"),
-							rs.getString("reimb_receipt"),
 							rs.getDate("reimb_submitted"),
 							rs.getDate("reimb_resolved"),
 							null,

@@ -25,6 +25,7 @@ document.getElementById("myDiv").style.display = "block";
 
 async function loginFunction(){
     //gather user's login input
+    
     let user = document.getElementById("username").value//names in our java objects
     let pass= document.getElementById("password").value
     //let firstName= document.getElementById("firstName").value
@@ -36,11 +37,14 @@ async function loginFunction(){
         //firstName: firstName,
         //lastName: lastName,
         //email: email
+        
      }
+
      console.log(userCreds)
      //fetch request
      let response = await fetch (url + "/login", {
         method: "POST", //sends a post request
+
         body: JSON.stringify(userCreds),
         credentials: "include"//this line ensure a cookie gets captured so that we can use session
         
@@ -52,12 +56,14 @@ async function loginFunction(){
         let data = await response.json();//this converts incoming user data into js
 
         console.log("Welcome " + data.username)
+        window.location.href = "reimb.html";
 
      }else{
-        console.log("Login Failed! Please try again!!!").style.color = "red";
+        console.log("Login Failed! Please try again!!!");
        
 
      }
+
 }
 
 async function signUpFunction(){

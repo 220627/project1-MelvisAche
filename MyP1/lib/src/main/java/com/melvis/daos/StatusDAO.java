@@ -58,7 +58,7 @@ public class StatusDAO implements StatusDAOInterface{
 	
 	public boolean deleteStatusId(int id) {
 		try (Connection conn = P1ConnectionUtil.getConnection()){
-			String sql = "delete from ers_reimbursement_status where reimb_status_id = ?";
+			String sql = "delete from ers_reimbursement_status where reim_status_id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();
@@ -114,7 +114,7 @@ public class StatusDAO implements StatusDAOInterface{
 				ArrayList<Status> statsList = new ArrayList<>();
 				while(rs.next()) {
 					Status stats = new Status(
-							rs.getInt("reimb_status_id"),
+							rs.getInt("reim_status_id"),
 							rs.getString("reimb_status")	
 							);
 					statsList.add(stats);

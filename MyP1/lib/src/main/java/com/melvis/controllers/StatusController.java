@@ -47,14 +47,17 @@ StatusDAO sDAO = new StatusDAO();
 	
 	public Handler insertStatusHandler = (ctx) -> {
 		//Post data is being posted to your backend which we access with ctx.body();
-		//body?? it refers to the boody of the http request which were the incoming data is found
+		//body?? it refers to the body of the http request which were the incoming data is found
 		String body = ctx.body();
 		//create a new Gson object to make Json java conversion
 		Gson gson = new Gson();
-		//turn the incoming Json string directly into an Role object
+		
 		Status newStat = gson.fromJson(body, Status.class);
+		String userNameJSON = gson.toJson(newStat);
+		
 		
 		if(sDAO.insertStatus(newStat)) {
+			ctx.result(userNameJSON);
 			ctx.status(202); //202 stands for acception
 		
 		}else {ctx.status(406); //406 means wasn't accepted
