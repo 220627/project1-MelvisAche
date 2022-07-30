@@ -56,7 +56,7 @@ async function loginFunction(){
         let data = await response.json();//this converts incoming user data into js
 
         console.log("Welcome " + data.username)
-        window.location.href = "reimb.html";
+        window.location.href = "Front.html";
 
      }else{
         console.log("Login Failed! Please try again!!!");

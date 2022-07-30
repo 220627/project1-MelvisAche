@@ -8,8 +8,8 @@ async function reimbFunction(){
     let description= document.getElementById("descrip").value
     let author= document.getElementById("author").value
     let resolver= document.getElementById("resolver").value
+    let status = document.getElementById("status").value
     let typeId= document.getElementById("type").value
-    let receipt= document.getElementById("receipt").value
     let dateSubmitted= document.getElementById("datetime").value
     let dateResolved= document.getElementById("datetime").value
    
@@ -18,7 +18,7 @@ async function reimbFunction(){
         description: description,
         author: author,
         resolver: resolver,
-        status_id_fk: 2,
+        status_id_fk: status,
         type_id_fk: typeId,
         submitted: dateSubmitted,
         resolved: dateResolved
@@ -80,6 +80,14 @@ async function getReimbusrement(){ //getEmployees is a sync function which uses 
             row.appendChild(cell);
 
             cell = document.createElement("td")
+            cell.innerHTML = reimbursement.status.status
+            row.appendChild(cell)
+
+            cell = document.createElement("td")
+            cell.innerHTML = reimbursement.type.type
+            row.appendChild(cell);
+
+            cell = document.createElement("td")
             cell.innerHTML = reimbursement.submitted
             row.appendChild(cell);
 
@@ -87,13 +95,7 @@ async function getReimbusrement(){ //getEmployees is a sync function which uses 
             cell.innerHTML = reimbursement.resolved
             row.appendChild(cell);
 
-            cell = document.createElement("td")
-            cell.innerHTML = reimbursement.status.status
-            row.appendChild(cell)
-
-            cell = document.createElement("td")
-            cell.innerHTML = reimbursement.type.type
-            row.appendChild(cell);
+           
 
             document.getElementById("reimbursementBody").appendChild(row)
 

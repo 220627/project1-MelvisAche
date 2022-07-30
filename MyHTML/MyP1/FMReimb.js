@@ -1,6 +1,7 @@
 const url = "http://localhost:8181";
 document.getElementById("employeeButton").onclick = getReimbursement
 document.getElementById("statusButton").onclick = getStatus
+document.getElementById("updateButton").onclick = updateStatus
 
 async function getReimbursement(){ //getEmployees is a sync function which uses fecth request to get employees from our server
     let response = await fetch(url + "/reimbursement")
@@ -33,7 +34,11 @@ async function getReimbursement(){ //getEmployees is a sync function which uses 
             row.appendChild(cell);
 
             cell = document.createElement("td")
-            cell.innerHTML = reimbursement.receipt
+            cell.innerHTML = reimbursement.status.status
+            row.appendChild(cell)
+
+            cell = document.createElement("td")
+            cell.innerHTML = reimbursement.type.type
             row.appendChild(cell);
 
             cell = document.createElement("td")
@@ -44,13 +49,6 @@ async function getReimbursement(){ //getEmployees is a sync function which uses 
             cell.innerHTML = reimbursement.resolved
             row.appendChild(cell);
 
-            cell = document.createElement("td")
-            cell.innerHTML = reimbursement.status.status
-            row.appendChild(cell)
-
-            cell = document.createElement("td")
-            cell.innerHTML = reimbursement.type.type
-            row.appendChild(cell);
 
             document.getElementById("reimbursementBody").appendChild(row)
 
@@ -69,12 +67,12 @@ async function getStatus(){
     
    
      let userCreds = {
-        getStatus: status
+        status: status
         
      }
      console.log(userCreds)
      //fetch request
-     let response = await fetch (url + "/status", {
+     let response = await fetch (url + "/insertStatus", {
         method: "POST", //sends a post request
         body: JSON.stringify(userCreds),
         credentials: "include"//this line ensure a cookie gets captured so that we can use session
@@ -93,4 +91,22 @@ async function getStatus(){
         document.getElementById("welcomeHead").style.color = "red";
 
      }
+}
+
+async function updateStatus(){
+   //fetch request Put
+   let id = document.getElementById("statusId").value//values in paranthesis are the IDS of the input elements in HTML
+   let status = document.getElementById("status").value
+   let response = await fetch(url + "/ers_reimbursement_status/" + id, {
+       method: "PUT", //sending a put request
+       body:status//no need to turn into JSOn cuz its just one number
+   } )
+
+   if (response.status === 202){
+       document.getElementById("updateHeader").innerText ="Status for ID " + id + " has been successfully updated to: " + status
+   }else{
+       document.getElementById("updateHeader").innerText ="Update failed! Please check the Status Id again!!!"
+   }
+
+   
 }
