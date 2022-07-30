@@ -21,11 +21,11 @@ StatusDAO sDAO = new StatusDAO();
 	
 	public Handler updateStatusHandler = (ctx) ->{
 		
-		String stats= ctx.body();
+		String status= ctx.body();
 		int id = Integer.parseInt(ctx.pathParam("reim_status_id")); //path param gives us the value the user sends in
 		//parseInt converts ctx.body to integer
 		
-		if(sDAO.updateUserStatus(stats, id)) {
+		if(sDAO.updateUserStatus(status, id)) {
 			ctx.status(202);
 			
 		}else {

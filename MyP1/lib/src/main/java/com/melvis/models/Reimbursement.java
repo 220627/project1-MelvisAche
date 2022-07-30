@@ -1,5 +1,6 @@
 package com.melvis.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Reimbursement {
@@ -10,27 +11,11 @@ public class Reimbursement {
 	private int resolver;
 	private int status_id_fk;
 	private int type_id_fk;
-	
-	private Reimbursement(int id, double amount, String description, int author, int resolver, int status_id_fk,
-			int type_id_fk, Date submitted, Date resolved, Status status, Type type) {
-		super();
-		this.id = id;
-		this.amount = amount;
-		this.description = description;
-		this.author = author;
-		this.resolver = resolver;
-		this.status_id_fk = status_id_fk;
-		this.type_id_fk = type_id_fk;
-		this.submitted = submitted;
-		this.resolved = resolved;
-		this.status = status;
-		this.type = type;
-	}
-
-	private Date submitted;
-	private Date resolved;
+	private Timestamp submitted;
+	private Timestamp resolved;
 	private Status status;
 	private Type type;
+	
 	@Override
 	public String toString() {
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", description=" + description + ", author=" + author
@@ -38,21 +23,21 @@ public class Reimbursement {
 				+ ", submitted=" + submitted + ", resolved=" + resolved + ", status=" + status + ", type=" + type + "]";
 	}
 	
-	public Reimbursement(int id, double amount, String description, int author, int resolver, Date submitted, Date resolved, Status status, Type type) {
+	public Reimbursement(int id, double amount, String description, int author, int resolver, Timestamp submitted, Timestamp resolved, Status status, Type type) {
 		super();
 		this.id = id;
 		this.amount = amount;
 		this.description = description;
 		this.author = author;
 		this.resolver = resolver;
-		this.submitted = submitted;
+		this.submitted =  submitted;
 		this.resolved = resolved;
 		this.status = status;
 		this.type = type;
 	}
 
 	public Reimbursement(double amount, String description, int author, int resolver, int status_id_fk, int type_id_fk
-			, Date submitted, Date resolved, Status status, Type type) {
+			, Timestamp submitted, Timestamp resolved, Status status, Type type) {
 		super();
 		this.amount = amount;
 		this.description = description;
@@ -126,7 +111,7 @@ public class Reimbursement {
 		return submitted;
 	}
 
-	public void setSubmitted(Date submitted) {
+	public void setSubmitted(Timestamp submitted) {
 		this.submitted = submitted;
 	}
 
@@ -134,7 +119,7 @@ public class Reimbursement {
 		return resolved;
 	}
 
-	public void setResolved(Date resolved) {
+	public void setResolved(Timestamp resolved) {
 		this.resolved = resolved;
 	}
 

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import com.melvis.models.Reimbursement;
@@ -29,8 +30,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ps.setInt(4, reimburse.getResolver());
 				ps.setInt(5, reimburse.getStatus_id_fk());
 				ps.setInt(6, reimburse.getType_id_fk());
-				ps.setDate(7, (Date) reimburse.getSubmitted());
-				ps.setDate(8, (Date) reimburse.getResolved());
+				ps.setTimestamp(7, (Timestamp) reimburse.getSubmitted());
+				ps.setTimestamp(8, (Timestamp) reimburse.getResolved());
 				ps.executeUpdate();//this sends our sql off to the database
 				
 				System.out.println("Reimbursement was inserted successfully...");
@@ -66,8 +67,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 							rs.getString("reimb_description"),
 							rs.getInt("reimb_author"),
 							rs.getInt("reimb_resolver"),
-							rs.getDate("reimb_submitted"),
-							rs.getDate("reimb_resolved"),
+							rs.getTimestamp("reimb_submitted"),
+							rs.getTimestamp("reimb_resolved"),
 							null,
 							null
 							

@@ -68,8 +68,8 @@ async function loginFunction(){
 
 async function signUpFunction(){
    //gather user's login input
-   let user = document.getElementById("username").value//names in our java objects
-   let pass= document.getElementById("password").value
+   let user = document.getElementById("signUpusername").value//names in our java objects
+   let pass= document.getElementById("signUppassword").value
    let firstName= document.getElementById("firstName").value
    let lastName= document.getElementById("lastName").value
    let email= document.getElementById("email").value

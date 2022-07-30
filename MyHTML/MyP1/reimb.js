@@ -10,7 +10,7 @@ async function reimbFunction(){
     let resolver= document.getElementById("resolver").value
     let status = document.getElementById("status").value
     let typeId= document.getElementById("type").value
-    let dateSubmitted= document.getElementById("datetime").value
+    let dateSubmitted= document.getElementById("dateTime").value
     let dateResolved= document.getElementById("datetime").value
    
      let userCreds = {
@@ -40,14 +40,14 @@ async function reimbFunction(){
      if(response.status === 202){
         let data = await response.json();//this converts incoming user data into js
 
-        document.getElementById("reimbRow").innerText = "Successfully Inserted " 
+        document.getElementById("reimbRow").innerText = data + "Successfully Inserted " 
 
      }else{
         document.getElementById("welcomeHead").innerText="Failed to insert new reimbursement Please try again!!!"
         document.getElementById("welcomeHead").style.color = "red";
 
      }
-}
+}//End of insert
 
 async function getReimbusrement(){ //getEmployees is a sync function which uses fecth request to get employees from our server
     let response = await fetch(url + "/reimbursement")

@@ -1,5 +1,6 @@
 package com.melvis.controllers;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -31,6 +32,7 @@ public class ReimbursementController {
 		Reimbursement newReimb = gson.fromJson(body, Reimbursement.class);
 		
 		//If it succeeds, it'll call return true since that's the return type of insertReimbursement
+	
 		if(rDAO.insertReimburse(newReimb)) {
 			ctx.status(202); //202 stands for acception
 		

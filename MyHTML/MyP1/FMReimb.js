@@ -14,7 +14,7 @@ async function getReimbursement(){ //getEmployees is a sync function which uses 
             let row = document.createElement("tr")
             let cell = document.createElement("td")
             //fill the call with the appropriate data
-            cell.innerHTML = reimbursement.reimb_id
+            cell.innerHTML = reimbursement.id
             row.appendChild(cell);
 
             cell = document.createElement("td")
@@ -96,7 +96,7 @@ async function getStatus(){
 async function updateStatus(){
    //fetch request Put
    let id = document.getElementById("statusId").value//values in paranthesis are the IDS of the input elements in HTML
-   let status = document.getElementById("status").value
+   let status = document.getElementById("newstatus").value
    let response = await fetch(url + "/ers_reimbursement_status/" + id, {
        method: "PUT", //sending a put request
        body:status//no need to turn into JSOn cuz its just one number
